@@ -1,0 +1,82 @@
+﻿@model mvcReserHotel.Models.cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nacionalidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nacionalidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.procedencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.procedencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cui)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cui)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.extendido_en)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.extendido_en)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.profesión)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.profesión)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado_civil.estado_civil1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado_civil.estado_civil1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cod_cliente }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
