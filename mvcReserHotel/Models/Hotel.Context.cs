@@ -28,9 +28,10 @@ namespace mvcReserHotel.Models
         public virtual DbSet<cliente> cliente { get; set; }
         public virtual DbSet<estado> estado { get; set; }
         public virtual DbSet<estado_civil> estado_civil { get; set; }
-        public virtual DbSet<habitacion> habitacion { get; set; }
         public virtual DbSet<recepcionista> recepcionista { get; set; }
         public virtual DbSet<reservacion> reservacion { get; set; }
         public virtual DbSet<tipo_habitacion> tipo_habitacion { get; set; }
+        public virtual DbSet<hab_reser> hab_reser { get; set; }
+        public virtual DbSet<habitacion> habitacion { get; set; }
     }
 }

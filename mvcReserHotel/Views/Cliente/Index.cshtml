@@ -4,11 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Clientes</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create")
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -38,6 +39,8 @@
         <th></th>
     </tr>
 
+   
+
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -59,15 +62,26 @@
             @Html.DisplayFor(modelItem => item.extendido_en)
         </td>
         <td>
+            
             @Html.DisplayFor(modelItem => item.profesión)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.estado_civil.estado_civil1)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.cod_cliente }) |
+            <a href="@Url.Action("Edit", new { id=item.cod_cliente })">
+                <i class="glyphicon glyphicon-pencil"></i>
+                <span class="sr-only">Edit</span>
+            </a>
+
+            <a href="@Url.Action("Details", new { id=item.cod_cliente })">
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <span class="sr-only">Details</span>
+            </a>
+
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.cod_cliente }) |
             @Html.ActionLink("Details", "Details", new { id=item.cod_cliente }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.cod_cliente })
+            @Html.ActionLink("Delete", "Delete", new { id=item.cod_cliente })*@
         </td>
     </tr>
 }

@@ -14,13 +14,19 @@ namespace mvcReserHotel.Models
     
     public partial class habitacion
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public habitacion()
+        {
+            this.hab_reser = new HashSet<hab_reser>();
+        }
+    
         public int cod_habitacion { get; set; }
         public Nullable<int> cod_estado { get; set; }
         public Nullable<int> cod_tipo_habitacion { get; set; }
-        public Nullable<int> cod_reservacion { get; set; }
     
         public virtual estado estado { get; set; }
-        public virtual reservacion reservacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<hab_reser> hab_reser { get; set; }
         public virtual tipo_habitacion tipo_habitacion { get; set; }
     }
 }

@@ -39,9 +39,18 @@ namespace mvcReserHotel.Controllers
         // GET: Reservacion/Create
         public ActionResult Create()
         {
-            ViewBag.cod_cliente = new SelectList(db.cliente, "cod_cliente", "nombres");
+
+            var recepcionista = from m in db.recepcionista
+                       select new { cod_usuario = m.cod_usuario, nombres = m.nombres + " " + m.apellidos };
+
+            var estado = from p in db.estado
+                         where p.cod_estado >= 4
+                         select p;
+
+
+             ViewBag.cod_cliente = new SelectList(db.cliente, "cod_cliente", "nombres");
             ViewBag.cod_estado = new SelectList(db.estado, "cod_estado", "nombre");
-            ViewBag.cod_usuario = new SelectList(db.recepcionista, "cod_usuario", "nombres");
+            ViewBag.cod_usuario = new SelectList(recepcionista, "cod_usuario", "nombres");
             return View();
         }
 
@@ -135,6 +144,24 @@ namespace mvcReserHotel.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+        
+
+        public JsonResult BuscarCliente(string term)
+        {
+            var Cliente = from m in db.cliente
+                          select new { cod_usuario = m.cod_cliente, nombres = m.nombres + " " + m.apellidos };
+
+
+            var cliente = Cliente.Where(x => x.nombres.Contains(term))
+                .Select(x => x.nombres).Take(5).ToList();
+                          
+            
+            
+
+            return Json(cliente, JsonRequestBehavior.AllowGet);
         }
     }
 }
