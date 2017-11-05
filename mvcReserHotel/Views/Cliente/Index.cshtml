@@ -1,0 +1,89 @@
+﻿@model IEnumerable<mvcReserHotel.Models.cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Clientes</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nacionalidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.procedencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cui)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.extendido_en)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.profesión)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado_civil.estado_civil1)
+        </th>
+        <th></th>
+    </tr>
+
+   
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.apellidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nacionalidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.procedencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cui)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.extendido_en)
+        </td>
+        <td>
+            
+            @Html.DisplayFor(modelItem => item.profesión)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado_civil.estado_civil1)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", new { id=item.cod_cliente })">
+                <i class="glyphicon glyphicon-pencil"></i>
+                <span class="sr-only">Edit</span>
+            </a>
+
+            <a href="@Url.Action("Details", new { id=item.cod_cliente })">
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <span class="sr-only">Details</span>
+            </a>
+
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.cod_cliente }) |
+            @Html.ActionLink("Details", "Details", new { id=item.cod_cliente }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.cod_cliente })*@
+        </td>
+    </tr>
+}
+
+</table>
