@@ -10,6 +10,7 @@ using mvcReserHotel.Models;
 
 namespace mvcReserHotel.Controllers
 {
+    //Este es un comentario
     public class ReservacionController : Controller
     {
         private ctxHotel db = new ctxHotel();
