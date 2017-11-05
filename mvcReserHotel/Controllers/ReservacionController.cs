@@ -11,6 +11,7 @@ using mvcReserHotel.Models;
 namespace mvcReserHotel.Controllers
 {
     //Este es un comentario
+    //Otro comentario
     public class ReservacionController : Controller
     {
         private ctxHotel db = new ctxHotel();
