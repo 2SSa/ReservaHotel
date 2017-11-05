@@ -12,6 +12,7 @@ namespace mvcReserHotel.Controllers
 {
     public class ClienteController : Controller
     {
+        // Santos maricon podes comportarte como hombre!!
         private ctxHotel db = new ctxHotel();
 
         // GET: Cliente
