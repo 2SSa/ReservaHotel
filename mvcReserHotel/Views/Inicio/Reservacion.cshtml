@@ -1,0 +1,40 @@
+﻿
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Datos del Cliente</h2>
+
+@using (Html.BeginForm("Reservacion", "Inicio", FormMethod.Post, new { @class = "col-md-12" }))
+{
+    <label>Fecha de inicio</label>
+    @Html.TextBox("fecha_inicio", null, new { @class = "form-control" })
+
+    <label>Fecha de salida</label>
+    @Html.TextBox("fecha_fin", null, new { @class = "form-control" })
+
+    <label>Fecha de creación</label>
+    @Html.TextBox("fecha_creacion", null, new { @class = "form-control" })
+
+    <label>Observacion</label>
+    @Html.TextBox("observacion", null, new { @class = "form-control" })
+
+    <label>Cuota</label>
+    @Html.TextBox("precio", null, new { @class = "form-control" })
+
+    <label>Estado</label>
+    @Html.DropDownList("cod_estado", null, htmlAttributes: new { @class = "form-control" })
+
+    <label>Recepcionista</label>
+    @Html.DropDownList("cod_usuario", null, htmlAttributes: new { @class = "form-control" })
+    
+    <button type="submit" class="btn btn-success">Reservar</button>
+}
+
+
+
+
+
+
+

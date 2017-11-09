@@ -1,0 +1,36 @@
+﻿@model mvcReserHotel.Models.habitacion
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2 class="text-center">Detalles de habitación</h2>
+<h2></h2>
+
+
+<table class="table table-bordered table-responsive">
+    <thead>
+        <tr>
+            <th>No. de Habitacion</th>
+            <th>Tipo</th>
+            <th>Estado</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.cod_habitacion</td>
+            <td>@Model.tipo_habitacion.nombre</td>
+            <td>@Model.estado.nombre</td>
+            <td>@Model.tipo_habitacion.precio</td>
+        </tr>
+    </tbody>
+</table>
+
+@Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-success", @type = "submit" })
+
+@*<button type="submit" class="btn btn-success">@Html.ActionLink("Nuevo Empleado", "NuevoEmpleado")</button>*@
+
+
+
+

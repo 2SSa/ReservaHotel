@@ -1,0 +1,43 @@
+﻿
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Datos del Cliente</h2>
+
+@using (Html.BeginForm("Cliente", "Inicio", FormMethod.Post, new { @class = "col-md-12" }))
+{
+    <label>Nombres</label>
+    @Html.TextBox("nombres", null, new { @class = "form-control" })
+
+    <label>Apellidos</label>
+    @Html.TextBox("apellidos", null, new { @class = "form-control" })
+
+    <label>Nacionalidad</label>
+    @Html.TextBox("nacionalidad", null, new { @class = "form-control" })
+
+    <label>Procedencia</label>
+    @Html.TextBox("procedencia", null, new { @class = "form-control" })
+
+    <label>CUI</label>
+    @Html.TextBox("CUI", null, new { @class = "form-control" })
+
+    <label>Extendido en</label>
+    @Html.TextBox("Extendido en", null, new { @class = "form-control" })
+
+    <label>Estado civil</label>
+    @Html.DropDownList("cod_estado_civil", null, htmlAttributes: new { @class = "form-control" })
+
+    <label>Profesión</label>
+    @Html.TextBox("profesión", null, new { @class = "form-control" })
+
+    <button type="submit" class="btn btn-success">Siguiente</button>
+}
+
+
+
+
+
+
+

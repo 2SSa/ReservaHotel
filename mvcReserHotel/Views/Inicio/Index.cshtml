@@ -1,0 +1,165 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">Habitaciones</h2>
+<h2></h2>
+
+<!--Tabla para habitacion simple-->
+<table class="table table-bordered table-responsive">
+    <caption>HABITACION SIMPLE</caption>
+    <thead>
+        <tr>
+            <th>No. de Habitacion</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var item in ViewBag.simple)
+        {
+            <tr>
+                <td>@item.Numero</td>
+                <td>@item.Estado</td>
+                <td>
+                    @Html.ActionLink("Detalles", "Detalles", "Inicio", new { codigoHabitacion = item.Numero }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Nueva reservacion", "Cliente","Inicio", null, new {@class = "btn btn-succes btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!--Tabla para habitacion simple doble-->
+<table class="table table-bordered table-responsive">
+    <caption>HABITACION SIMPLE DOBLE</caption>
+    <thead>
+        <tr>
+            <th>No. de Habitacion</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.simpleD)
+        {
+            <tr>
+                <td>@item.Numero</td>
+                <td>@item.Estado</td>
+                <td>
+                    @Html.ActionLink("Detalles", "Detalles", "Inicio", new { codigoHabitacion = item.Numero }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Nueva reservacion", "Cliente", "Inicio", null, new { @class = "btn btn-succes btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!--Tabla para habitacion ejecutivo-->
+<table class="table table-bordered table-responsive">
+    <caption>HABITACION EJECUTIVO</caption>
+    <thead>
+        <tr>
+            <th>No. de Habitacion</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.ejecutivo)
+        {
+            <tr>
+                <td>@item.Numero</td>
+                <td>@item.Estado</td>
+                <td>
+                    @Html.ActionLink("Detalles", "Detalles", "Inicio", new { codigoHabitacion = item.Numero }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Nueva reservacion", "Cliente", "Inicio", null, new { @class = "btn btn-succes btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!--Tabla para habitacion ejecutivo doble-->
+<table class="table table-bordered table-responsive">
+    <caption>HABITACION EJECUTIVO DOBLE</caption>
+    <thead>
+        <tr>
+            <th>No. de Habitacion</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.ejecutivoD)
+        {
+            <tr>
+                <td>@item.Numero</td>
+                <td>@item.Estado</td>
+                <td>
+                    @Html.ActionLink("Detalles", "Detalles", "Inicio", new { codigoHabitacion = item.Numero }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Nueva reservacion", "Cliente", "Inicio", null, new { @class = "btn btn-succes btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!--Tabla para habitacion suit-->
+<table class="table table-bordered table-responsive">
+    <caption>SUIT</caption>
+    <thead>
+        <tr>
+            <th>No. de Habitacion</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.suit)
+        {
+            <tr>
+                <td>@item.Numero</td>
+                <td>@item.Estado</td>
+                <td>
+                    @Html.ActionLink("Detalles", "Detalles", "Inicio", new { codigoHabitacion = item.Numero }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Nueva reservacion", "Cliente", "Inicio", null, new { @class = "btn btn-succes btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!--Tabla para habitacion suit presidencial-->
+<table class="table table-bordered table-responsive">
+    <caption>SUIT PRESIDENCIAL</caption>
+    <thead>
+        <tr>
+            <th>No. de Habitacion</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.suitP)
+        {
+            <tr>
+                <td>@item.Numero</td>
+                <td>@item.Estado</td>
+                <td>
+                    @Html.ActionLink("Detalles", "Detalles", "Inicio", new { codigoHabitacion = item.Numero }, new { @class = "btn btn-success btn-sm" })
+                    @Html.ActionLink("Nueva reservacion", "Cliente", "Inicio", null, new { @class = "btn btn-succes btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*<button type="submit" class="btn btn-success">@Html.ActionLink("Nuevo Empleado", "NuevoEmpleado")</button>*@
+@*@Html.ActionLink("Nuevo Empleado", "NuevoEmpleado", null, new { @class = "btn btn-success", @type = "submit" })*@
+
+
+
