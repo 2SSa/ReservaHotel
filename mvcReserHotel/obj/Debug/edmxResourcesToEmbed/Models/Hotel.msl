@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="hotelModelStoreContainer" CdmEntityContainer="ctxHotel">
+    <EntitySetMapping Name="cliente">
+      <EntityTypeMapping TypeName="hotelModel.cliente">
+        <MappingFragment StoreEntitySet="cliente">
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+          <ScalarProperty Name="procedencia" ColumnName="procedencia" />
+          <ScalarProperty Name="cui" ColumnName="cui" />
+          <ScalarProperty Name="extendido_en" ColumnName="extendido_en" />
+          <ScalarProperty Name="cod_estado_civil" ColumnName="cod_estado_civil" />
+          <ScalarProperty Name="profesión" ColumnName="profesión" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estado">
+      <EntityTypeMapping TypeName="hotelModel.estado">
+        <MappingFragment StoreEntitySet="estado">
+          <ScalarProperty Name="cod_estado" ColumnName="cod_estado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estado_civil">
+      <EntityTypeMapping TypeName="hotelModel.estado_civil">
+        <MappingFragment StoreEntitySet="estado_civil">
+          <ScalarProperty Name="cod_estado_civil" ColumnName="cod_estado_civil" />
+          <ScalarProperty Name="estado_civil1" ColumnName="estado_civil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recepcionista">
+      <EntityTypeMapping TypeName="hotelModel.recepcionista">
+        <MappingFragment StoreEntitySet="recepcionista">
+          <ScalarProperty Name="cod_usuario" ColumnName="cod_usuario" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reservacion">
+      <EntityTypeMapping TypeName="hotelModel.reservacion">
+        <MappingFragment StoreEntitySet="reservacion">
+          <ScalarProperty Name="cod_reservacion" ColumnName="cod_reservacion" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="cod_estado" ColumnName="cod_estado" />
+          <ScalarProperty Name="cod_usuario" ColumnName="cod_usuario" />
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_habitacion">
+      <EntityTypeMapping TypeName="hotelModel.tipo_habitacion">
+        <MappingFragment StoreEntitySet="tipo_habitacion">
+          <ScalarProperty Name="cod_tipo_habitacion" ColumnName="cod_tipo_habitacion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hab_reser">
+      <EntityTypeMapping TypeName="hotelModel.hab_reser">
+        <MappingFragment StoreEntitySet="hab_reser">
+          <ScalarProperty Name="cod_reservacion" ColumnName="cod_reservacion" />
+          <ScalarProperty Name="cod_habitacion" ColumnName="cod_habitacion" />
+          <ScalarProperty Name="cod_hab_reser" ColumnName="cod_hab_reser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="habitacion">
+      <EntityTypeMapping TypeName="hotelModel.habitacion">
+        <MappingFragment StoreEntitySet="habitacion">
+          <ScalarProperty Name="cod_tipo_habitacion" ColumnName="cod_tipo_habitacion" />
+          <ScalarProperty Name="cod_estado" ColumnName="cod_estado" />
+          <ScalarProperty Name="cod_habitacion" ColumnName="cod_habitacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
