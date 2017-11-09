@@ -68,21 +68,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="hab_reser">
-      <EntityTypeMapping TypeName="hotelModel.hab_reser">
-        <MappingFragment StoreEntitySet="hab_reser">
-          <ScalarProperty Name="cod_reservacion" ColumnName="cod_reservacion" />
-          <ScalarProperty Name="cod_habitacion" ColumnName="cod_habitacion" />
-          <ScalarProperty Name="cod_hab_reser" ColumnName="cod_hab_reser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="habitacion">
       <EntityTypeMapping TypeName="hotelModel.habitacion">
         <MappingFragment StoreEntitySet="habitacion">
           <ScalarProperty Name="cod_tipo_habitacion" ColumnName="cod_tipo_habitacion" />
           <ScalarProperty Name="cod_estado" ColumnName="cod_estado" />
           <ScalarProperty Name="cod_habitacion" ColumnName="cod_habitacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="habitacion_reservada">
+      <EntityTypeMapping TypeName="hotelModel.habitacion_reservada">
+        <MappingFragment StoreEntitySet="habitacion_reservada">
+          <ScalarProperty Name="cod_reservacion" ColumnName="cod_reservacion" />
+          <ScalarProperty Name="cod_habitacion" ColumnName="cod_habitacion" />
+          <ScalarProperty Name="cod_habitacion_res" ColumnName="cod_habitacion_res" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

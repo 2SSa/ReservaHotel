@@ -15,12 +15,12 @@
         <AssociationConnector Association="hotelModel.reservacion_cod_cliente_fkey" ManuallyRouted="false" />
         <AssociationConnector Association="hotelModel.reservacion_cod_estado_fkey" ManuallyRouted="false" />
         <AssociationConnector Association="hotelModel.reservacion_cod_usuario_fkey" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="hotelModel.hab_reser" Width="1.5" PointX="8.25" PointY="5" />
-        <AssociationConnector Association="hotelModel.hab_reser_cod_reservacion_fkey" />
         <EntityTypeShape EntityType="hotelModel.habitacion" Width="1.5" PointX="3" PointY="5.375" />
         <AssociationConnector Association="hotelModel.habitacion_cod_estado_fkey" />
-        <AssociationConnector Association="hotelModel.hab_reser_cod_habitacion_fkey" />
         <AssociationConnector Association="hotelModel.habitacion_cod_tipo_habitacion_fkey" />
+        <EntityTypeShape EntityType="hotelModel.habitacion_reservada" Width="1.5" PointX="8.25" PointY="8" />
+        <AssociationConnector Association="hotelModel.habitacion_reservada_cod_habitacion_fkey" />
+        <AssociationConnector Association="hotelModel.habitacion_reservada_cod_reservacion_fkey" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

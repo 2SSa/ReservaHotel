@@ -12,13 +12,13 @@ namespace mvcReserHotel.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class hab_reser
+    public partial class habitacion_reservada
     {
-        public int cod_hab_reser { get; set; }
+        public int cod_habitacion_res { get; set; }
         public Nullable<int> cod_habitacion { get; set; }
         public Nullable<int> cod_reservacion { get; set; }
     
-        public virtual reservacion reservacion { get; set; }
         public virtual habitacion habitacion { get; set; }
+        public virtual reservacion reservacion { get; set; }
     }
 }

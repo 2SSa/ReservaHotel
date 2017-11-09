@@ -17,7 +17,7 @@ namespace mvcReserHotel.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public reservacion()
         {
-            this.hab_reser = new HashSet<hab_reser>();
+            this.habitacion_reservada = new HashSet<habitacion_reservada>();
         }
     
         public int cod_reservacion { get; set; }
@@ -34,6 +34,6 @@ namespace mvcReserHotel.Models
         public virtual estado estado { get; set; }
         public virtual recepcionista recepcionista { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<hab_reser> hab_reser { get; set; }
+        public virtual ICollection<habitacion_reservada> habitacion_reservada { get; set; }
     }
 }

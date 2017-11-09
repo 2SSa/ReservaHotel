@@ -249,7 +249,7 @@
       <DependentUpon>Hotel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HabitacionInicio.cs" />
-    <Compile Include="Models\hab_reser.cs">
+    <Compile Include="Models\habitacion_reservada.cs">
       <DependentUpon>Hotel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Hotel.Context.cs">

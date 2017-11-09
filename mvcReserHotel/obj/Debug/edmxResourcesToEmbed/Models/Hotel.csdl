@@ -61,7 +61,7 @@
     <NavigationProperty Name="cliente" Relationship="Self.reservacion_cod_cliente_fkey" FromRole="reservacion" ToRole="cliente" />
     <NavigationProperty Name="estado" Relationship="Self.reservacion_cod_estado_fkey" FromRole="reservacion" ToRole="estado" />
     <NavigationProperty Name="recepcionista" Relationship="Self.reservacion_cod_usuario_fkey" FromRole="reservacion" ToRole="recepcionista" />
-    <NavigationProperty Name="hab_reser" Relationship="hotelModel.hab_reser_cod_reservacion_fkey" FromRole="reservacion" ToRole="hab_reser" />
+    <NavigationProperty Name="habitacion_reservada" Relationship="hotelModel.habitacion_reservada_cod_reservacion_fkey" FromRole="reservacion" ToRole="habitacion_reservada" />
   </EntityType>
   <EntityType Name="tipo_habitacion">
     <Key>
@@ -143,47 +143,25 @@
       <End Role="recepcionista" EntitySet="recepcionista" />
       <End Role="reservacion" EntitySet="reservacion" />
     </AssociationSet>
-    <EntitySet Name="hab_reser" EntityType="hotelModel.hab_reser" />
-    <AssociationSet Name="hab_reser_cod_reservacion_fkey" Association="hotelModel.hab_reser_cod_reservacion_fkey">
-      <End Role="reservacion" EntitySet="reservacion" />
-      <End Role="hab_reser" EntitySet="hab_reser" />
-    </AssociationSet>
     <EntitySet Name="habitacion" EntityType="hotelModel.habitacion" />
     <AssociationSet Name="habitacion_cod_estado_fkey" Association="hotelModel.habitacion_cod_estado_fkey">
       <End Role="estado" EntitySet="estado" />
       <End Role="habitacion" EntitySet="habitacion" />
     </AssociationSet>
-    <AssociationSet Name="hab_reser_cod_habitacion_fkey" Association="hotelModel.hab_reser_cod_habitacion_fkey">
-      <End Role="habitacion" EntitySet="habitacion" />
-      <End Role="hab_reser" EntitySet="hab_reser" />
-    </AssociationSet>
     <AssociationSet Name="habitacion_cod_tipo_habitacion_fkey" Association="hotelModel.habitacion_cod_tipo_habitacion_fkey">
       <End Role="tipo_habitacion" EntitySet="tipo_habitacion" />
       <End Role="habitacion" EntitySet="habitacion" />
     </AssociationSet>
+    <EntitySet Name="habitacion_reservada" EntityType="hotelModel.habitacion_reservada" />
+    <AssociationSet Name="habitacion_reservada_cod_habitacion_fkey" Association="hotelModel.habitacion_reservada_cod_habitacion_fkey">
+      <End Role="habitacion" EntitySet="habitacion" />
+      <End Role="habitacion_reservada" EntitySet="habitacion_reservada" />
+    </AssociationSet>
+    <AssociationSet Name="habitacion_reservada_cod_reservacion_fkey" Association="hotelModel.habitacion_reservada_cod_reservacion_fkey">
+      <End Role="reservacion" EntitySet="reservacion" />
+      <End Role="habitacion_reservada" EntitySet="habitacion_reservada" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="hab_reser">
-    <Key>
-      <PropertyRef Name="cod_hab_reser" />
-    </Key>
-    <Property Name="cod_hab_reser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="cod_habitacion" Type="Int32" />
-    <Property Name="cod_reservacion" Type="Int32" />
-    <NavigationProperty Name="reservacion" Relationship="hotelModel.hab_reser_cod_reservacion_fkey" FromRole="hab_reser" ToRole="reservacion" />
-    <NavigationProperty Name="habitacion" Relationship="hotelModel.hab_reser_cod_habitacion_fkey" FromRole="hab_reser" ToRole="habitacion" />
-  </EntityType>
-  <Association Name="hab_reser_cod_reservacion_fkey">
-    <End Type="hotelModel.reservacion" Role="reservacion" Multiplicity="0..1" />
-    <End Type="hotelModel.hab_reser" Role="hab_reser" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="reservacion">
-        <PropertyRef Name="cod_reservacion" />
-      </Principal>
-      <Dependent Role="hab_reser">
-        <PropertyRef Name="cod_reservacion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="habitacion">
     <Key>
       <PropertyRef Name="cod_habitacion" />
@@ -192,8 +170,8 @@
     <Property Name="cod_estado" Type="Int32" />
     <Property Name="cod_tipo_habitacion" Type="Int32" />
     <NavigationProperty Name="estado" Relationship="hotelModel.habitacion_cod_estado_fkey" FromRole="habitacion" ToRole="estado" />
-    <NavigationProperty Name="hab_reser" Relationship="hotelModel.hab_reser_cod_habitacion_fkey" FromRole="habitacion" ToRole="hab_reser" />
     <NavigationProperty Name="tipo_habitacion" Relationship="hotelModel.habitacion_cod_tipo_habitacion_fkey" FromRole="habitacion" ToRole="tipo_habitacion" />
+    <NavigationProperty Name="habitacion_reservada" Relationship="hotelModel.habitacion_reservada_cod_habitacion_fkey" FromRole="habitacion" ToRole="habitacion_reservada" />
   </EntityType>
   <Association Name="habitacion_cod_estado_fkey">
     <End Type="hotelModel.estado" Role="estado" Multiplicity="0..1" />
@@ -207,18 +185,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="hab_reser_cod_habitacion_fkey">
-    <End Type="hotelModel.habitacion" Role="habitacion" Multiplicity="0..1" />
-    <End Type="hotelModel.hab_reser" Role="hab_reser" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="habitacion">
-        <PropertyRef Name="cod_habitacion" />
-      </Principal>
-      <Dependent Role="hab_reser">
-        <PropertyRef Name="cod_habitacion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="habitacion_cod_tipo_habitacion_fkey">
     <End Type="hotelModel.tipo_habitacion" Role="tipo_habitacion" Multiplicity="0..1" />
     <End Type="hotelModel.habitacion" Role="habitacion" Multiplicity="*" />
@@ -228,6 +194,40 @@
       </Principal>
       <Dependent Role="habitacion">
         <PropertyRef Name="cod_tipo_habitacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="habitacion_reservada">
+    <Key>
+      <PropertyRef Name="cod_habitacion_res" />
+    </Key>
+    <Property Name="cod_habitacion_res" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cod_habitacion" Type="Int32" />
+    <Property Name="cod_reservacion" Type="Int32" />
+    <NavigationProperty Name="habitacion" Relationship="hotelModel.habitacion_reservada_cod_habitacion_fkey" FromRole="habitacion_reservada" ToRole="habitacion" />
+    <NavigationProperty Name="reservacion" Relationship="hotelModel.habitacion_reservada_cod_reservacion_fkey" FromRole="habitacion_reservada" ToRole="reservacion" />
+  </EntityType>
+  <Association Name="habitacion_reservada_cod_habitacion_fkey">
+    <End Type="hotelModel.habitacion" Role="habitacion" Multiplicity="0..1" />
+    <End Type="hotelModel.habitacion_reservada" Role="habitacion_reservada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="habitacion">
+        <PropertyRef Name="cod_habitacion" />
+      </Principal>
+      <Dependent Role="habitacion_reservada">
+        <PropertyRef Name="cod_habitacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="habitacion_reservada_cod_reservacion_fkey">
+    <End Type="hotelModel.reservacion" Role="reservacion" Multiplicity="0..1" />
+    <End Type="hotelModel.habitacion_reservada" Role="habitacion_reservada" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reservacion">
+        <PropertyRef Name="cod_reservacion" />
+      </Principal>
+      <Dependent Role="habitacion_reservada">
+        <PropertyRef Name="cod_reservacion" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
