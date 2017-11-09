@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace mvcReserHotel.Controllers
 {
+    //Puto el que lo lea
     public class InicioController : Controller
     {
         public static int codigoCliente;
