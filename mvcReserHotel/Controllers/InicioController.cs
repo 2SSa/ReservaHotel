@@ -10,6 +10,7 @@ namespace mvcReserHotel.Controllers
     public class InicioController : Controller
     {
         public static int codigoCliente;
+        public static int codigoHab;
         public int cont = 0;
         ctxHotel db = new ctxHotel();
         // GET: Habitaciones
@@ -86,6 +87,7 @@ namespace mvcReserHotel.Controllers
 
         public ActionResult Detalles (int codigoHabitacion)
         {
+            codigoHab = codigoHabitacion;
             var habitacion = from p in db.habitacion
                               where codigoHabitacion == p.cod_habitacion
                               select p;
